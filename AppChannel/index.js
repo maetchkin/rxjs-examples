@@ -6,7 +6,7 @@ var ChannelBus     = new BroadcastChannel('application'),
     ChannelSubject = new Subject(),
     AppChannel     = ChannelSubject.map( ({data}) => data );
 
-bus.onmessage = event => ChannelSubject.next( event )
+ChannelBus.onmessage = event => ChannelSubject.next( event )
 
 AppChannel.sub = sub => Object.assign(
     AppChannel
